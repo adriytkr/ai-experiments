@@ -47,7 +47,6 @@ class ResultFrame(ctk.CTkFrame):
     subjectivity_text:str,
     subjectivity_color:str
   ):
-    print(polarity_to_alpha(mood))
     self.mood_frame.update(
       description=mood_text,
       color=mood_color,
