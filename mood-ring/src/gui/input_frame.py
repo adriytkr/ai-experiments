@@ -1,7 +1,11 @@
 import customtkinter as ctk
 
 class InputFrame(ctk.CTkFrame):
-  def __init__(self,master):
+  def __init__(
+    self,
+    master,
+    compute
+  ):
     super().__init__(
       master,
       fg_color='transparent'
@@ -10,6 +14,7 @@ class InputFrame(ctk.CTkFrame):
     self.grid_columnconfigure(0,weight=1)
     self.grid_rowconfigure(0,weight=1)
 
+    # TextBox
     self.textbox=ctk.CTkTextbox(
       self,
       border_spacing=15
@@ -21,14 +26,16 @@ class InputFrame(ctk.CTkFrame):
       sticky='nsew'
     )
 
-    self.submitBtn=ctk.CTkButton(
+    # Compute Button
+    self.compute_btn=ctk.CTkButton(
       self,
       text='Compute Mood',
       border_spacing=8,
-      font=('Arial',12,'bold')
+      font=('Arial',12,'bold'),
+      command=compute
     )
 
-    self.submitBtn.grid(
+    self.compute_btn.grid(
       row=1,
       column=0,
       pady=(10,0),

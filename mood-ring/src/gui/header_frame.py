@@ -14,14 +14,14 @@ class HeaderFrame(ctk.CTkFrame):
       text='Mood Ring'.upper(),
       font=('Arial',32,'bold')
     )
-    self.title.pack(pady=(0,0))
+    self.title.pack(pady=(0,4))
 
     # Description
     self.description=ctk.CTkLabel(
       self,
-      text='Give any text and check its mood. It can detect sarcams, Internet slangs, emojis, and much  more.'
+      text='Type any text and Mood Ring will assess its mood and subjecivity.'
     )
-    self.description.pack()
+    self.description.pack(pady=(0,12))
 
     # Actions
     self.actions=ctk.CTkFrame(
@@ -60,7 +60,8 @@ class HeaderFrame(ctk.CTkFrame):
     )
 
   def open_source(self):
-    webbrowser.open('https://youtube.com')
+    repository_link='https://github.com/adriytkr/ai-experiments/tree/main/mood-ring'
+    webbrowser.open(repository_link)
 
   def open_help(self):
     print('opening help modal...')

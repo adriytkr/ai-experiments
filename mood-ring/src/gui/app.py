@@ -13,11 +13,11 @@ class App(ctk.CTk):
     self.grid_rowconfigure(0,weight=1)
     self.grid_columnconfigure(0,weight=1)
 
-    self.centeredFrame=ctk.CTkFrame(
+    self.centered_frame=ctk.CTkFrame(
       self,
       fg_color='transparent'
     )
-    self.centeredFrame.grid(
+    self.centered_frame.grid(
       row=0,
       column=0,
       padx=40,
@@ -25,19 +25,19 @@ class App(ctk.CTk):
       sticky='nsew'
     )
 
-    self.centeredFrame.grid_columnconfigure(0,weight=1)
-    self.centeredFrame.grid_rowconfigure(1,weight=1)
+    self.centered_frame.grid_columnconfigure(0,weight=1)
+    self.centered_frame.grid_rowconfigure(1,weight=1)
 
-    self.headerFrame=HeaderFrame(self.centeredFrame)
-    self.headerFrame.grid(
+    self.header_frame=HeaderFrame(self.centered_frame)
+    self.header_frame.grid(
       row=0,
       column=0,
-      pady=(0, 20),
+      pady=(0,24),
       sticky='n'
     )
 
-    self.mainFrame=MainFrame(self.centeredFrame)
-    self.mainFrame.grid(
+    self.main_frame=MainFrame(self.centered_frame)
+    self.main_frame.grid(
       row=1,
       column=0,
       sticky='nsew'

@@ -11,21 +11,26 @@ class MoodFrame(ctk.CTkFrame):
       self,
       text='I sense a very good feeling'
     )
-    self.mood.pack()
-
-    self.moodGauge=ctk.CTkProgressBar(
-      self,
-      width=30
+    self.mood.grid(
+      row=0,
+      column=0,
+      sticky='ew'
     )
-    self.moodGauge.pack()
 
     self.subjectivity=ctk.CTkLabel(
       self,
       text='It feels like very subjective'
     )
-    self.subjectivity.pack()
-    self.subjectivityGauge=ctk.CTkProgressBar(
-      self,
-      width=30
+    self.subjectivity.grid(
+      row=1,
+      column=0,
+      sticky='ew'
     )
-    self.subjectivityGauge.pack()
+
+  def update_mood(
+    self,
+    mood:str,
+    subjectivity:str
+  ):
+    self.mood.configure(text=mood)
+    self.subjectivity.configure(text=subjectivity)
