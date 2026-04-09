@@ -4,7 +4,10 @@ from PIL import Image
 
 class HeaderFrame(ctk.CTkFrame):
   def __init__(self,master):
-    super().__init__(master,fg_color='transparent')
+    super().__init__(
+      master,
+      fg_color='transparent'
+    )
 
     self.title=ctk.CTkLabel(
       self,
@@ -19,6 +22,9 @@ class HeaderFrame(ctk.CTkFrame):
     )
     self.description.pack()
 
+    self.actions=ctk.CTkFrame(self)
+    self.actions.pack()
+
     github_icon=ctk.CTkImage(
       light_image=Image.open('./icons/github-logo.png'),
       dark_image=Image.open('./icons/github-logo-white.png'),
@@ -26,25 +32,26 @@ class HeaderFrame(ctk.CTkFrame):
     )
 
     self.github_link=ctk.CTkButton(
-      self,
+      self.actions,
       image=github_icon,
-      text='Source',
+      text='Documentation',
       fg_color='transparent',
       cursor='hand2',
       command=self.open_repository
     )
-    self.github_link.pack()
+    self.github_link.pack(
+      side='left'
+    )
 
   def open_repository(self):
     webbrowser.open('https://youtube.com')
 
-class MainFrame(ctk.CTkFrame):
-  def __init__(self,master):
-    super().__init__(master,fg_color='transparent')
-
 class InputFrame(ctk.CTkFrame):
   def __init__(self,master):
-    super().__init__(master)
+    super().__init__(
+      master,
+      fg_color='transparent'
+    )
 
     self.grid_columnconfigure(0,weight=1)
     self.grid_rowconfigure(0,weight=1)
@@ -57,8 +64,6 @@ class InputFrame(ctk.CTkFrame):
     self.textbox.grid(
       row=0,
       column=0,
-      padx=10,
-      pady=10,
       sticky='nsew'
     )
 
@@ -72,14 +77,51 @@ class InputFrame(ctk.CTkFrame):
     self.submitBtn.grid(
       row=1,
       column=0,
-      padx=10,
-      pady=(0,10),
+      pady=(10,0),
       sticky='ew'
     )
 
 class MoodFrame(ctk.CTkFrame):
   def __init__(self,master):
-    pass
+    super().__init__(
+      master,
+      fg_color='transparent'
+    )
+
+    self.mood=ctk.CTkLabel(
+      self,
+      text='I sense a very good feeling'
+    )
+    self.mood.pack()
+
+    self.subjectivity=ctk.CTkLabel(
+      self,
+      text='It feels like very subjective'
+    )
+    self.subjectivity.pack()
+
+class MainFrame(ctk.CTkFrame):
+  def __init__(self,master):
+    super().__init__(
+      master,
+      fg_color='transparent'
+    )
+
+    self.grid_columnconfigure(0,weight=1)
+    self.inputFrame=InputFrame(self)
+    self.inputFrame.grid(
+      row=0,
+      column=0,
+      sticky='nsew'
+    )
+
+    self.grid_columnconfigure(1,weight=1)
+    self.moodFrame=MoodFrame(self)
+    self.moodFrame.grid(
+      row=0,
+      column=1,
+      sticky='nsew'
+    )
 
 class App(ctk.CTk):
   def __init__(self):
@@ -93,22 +135,21 @@ class App(ctk.CTk):
     self.centeredFrame=ctk.CTkFrame(self,fg_color='transparent')
     self.centeredFrame.grid(
       row=0,
-      column=0
+      column=0,
     )
 
-    self.centeredFrame.grid_columnconfigure(0,weight=1)
     self.headerFrame=HeaderFrame(self.centeredFrame)
     self.headerFrame.grid(
       row=0,
       column=0,
-      padx=10,
-      pady=10,
+      sticky='ew'
     )
 
     self.mainFrame=MainFrame(self.centeredFrame)
     self.mainFrame.grid(
       row=1,
-      column=0
+      column=0,
+      sticky='ew'
     )
 
 app=App()
