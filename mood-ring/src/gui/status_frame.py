@@ -9,10 +9,13 @@ class StatusFrame(ctk.CTkFrame):
     super().__init__(master)
     self.grid_columnconfigure(0,weight=1)
 
+    self.grid_rowconfigure(0,weight=1)
+    self.grid_rowconfigure(5,weight=1)
+
     # Gauge Number
     self.status_gauge_number=ctk.CTkLabel(self,text_color='gray')
     self.status_gauge_number.grid(
-      row=0,
+      row=1,
       column=0,
       padx=10,
     )
@@ -23,7 +26,7 @@ class StatusFrame(ctk.CTkFrame):
       text=title
     )
     self.status_title.grid(
-      row=1,
+      row=2,
       column=0,
       padx=10,
     )
@@ -31,7 +34,7 @@ class StatusFrame(ctk.CTkFrame):
     # Description
     self.status_description=ctk.CTkLabel(self)
     self.status_description.grid(
-      row=2,
+      row=3,
       column=0,
       padx=10,
     )
@@ -39,7 +42,7 @@ class StatusFrame(ctk.CTkFrame):
     # Gauge Bar
     self.status_gauge_bar=ctk.CTkProgressBar(self)
     self.status_gauge_bar.grid(
-      row=3,
+      row=4,
       column=0,
       padx=10,
     )

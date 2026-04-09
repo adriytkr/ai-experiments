@@ -8,7 +8,7 @@ class App(ctk.CTk):
     super().__init__()
 
     self.title('Mood Ring')
-    self.geometry('800x500')
+    self.geometry('960x540')
 
     self.grid_rowconfigure(0,weight=1)
     self.grid_columnconfigure(0,weight=1)
