@@ -2,6 +2,8 @@
 
 Mood Ring is a **lightweight desktop application** designed to analyze the emotional tone and subjectivity of your text in **real-time**. It provides a clean, modern interface that is intuitive and easy to use.
 
+![Demo of Mood Ring](./assets/demo.gif)
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
