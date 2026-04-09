@@ -42,3 +42,6 @@ class App(ctk.CTk):
       column=0,
       sticky='nsew'
     )
+  
+  def input(self,text:str):
+    self.main_frame.input(text)
